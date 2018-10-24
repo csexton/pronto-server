@@ -9,9 +9,8 @@ class ReviewWorker
     Repo.new(clone_url, branch).clone do |repo|
 
       formatters = [
-        #Pronto::Formatter::GithubFormatter.new ,
-        #Pronto::Formatter::GithubStatusFormatter.new
-        Pronto::Formatter::TextFormatter.new
+        Pronto::Formatter::GithubPullRequestReviewFormatter.new,
+        Pronto::Formatter::TextFormatter.new,
       ]
       Pronto.run('origin/master', '.', formatters)
     end
