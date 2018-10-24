@@ -13,16 +13,16 @@
     "worker": { "quantity": 1, "size": "hobby" }
   },
   "env": {
-    "GITHUB_ACCESS_TOKEN": {
+    "PRONTO_GITHUB_ACCESS_TOKEN": {
       "description": "GitHub API Access Token.",
       "required": true
     },
-    "GITHUB_WEBHOOK_SECRET": {
+    "PRONTO_GITHUB_WEBHOOK_SECRET": {
       "description": "Secret key for signing webhooks",
       "generator": "secret"
     },
     "SIDEKIQ_USER": {
-      "description": "Username for Sidekiq web dashboard, with out this the dashboard will be disabled.",
+      "description": "Username for Sidekiq web dashboard, without this the dashboard will be disabled.",
       "required": false
     },
     "SIDEKIQ_PASS": {
