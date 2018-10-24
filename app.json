@@ -8,6 +8,10 @@
     {"url": "heroku/ruby"}
   ],
   "addons": [ "heroku-redis" ],
+    "formation": {
+    "web": { "quantity": 1, "size": "hobby" },
+    "worker": { "quantity": 1, "size": "hobby" }
+  },
   "env": {
     "GITHUB_ACCESS_TOKEN": {
       "description": "GitHub API Access Token.",
@@ -15,7 +19,7 @@
     },
     "GITHUB_WEBHOOK_SECRET": {
       "description": "Secret key for signing webhooks",
-      "required": true
+      "generator": "secret"
     },
     "SIDEKIQ_USER": {
       "description": "Username for Sidekiq web dashboard, with out this the dashboard will be disabled.",
