@@ -27,7 +27,7 @@ private
   end
 
   def sha1
-    OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['GITHUB_WEBHOOK_SECRET'], @body)
+    OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['PRONTO_GITHUB_WEBHOOK_SECRET'], @body)
   end
 
   def json
