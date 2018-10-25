@@ -8,6 +8,7 @@ class GithubAdmin
     settings = {
       url: url,
       content_type: 'json',
+      secret: ENV.fetch('PRONTO_GITHUB_WEBHOOK_SECRET'),
     }
     options = {
       active: true, events: ['pull_request'],
