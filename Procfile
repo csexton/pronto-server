@@ -1,2 +1,2 @@
-web: bundle exec rackup -p $PORT
-worker: bundle exec sidekiq -r ./app.rb
+web: ./bin/rackup -p $PORT
+worker: ./bin/sidekiq -c 1 -r ./app.rb
