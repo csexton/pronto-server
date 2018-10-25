@@ -18,17 +18,21 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    "Pronto Server"
   end
 
-  post '/' do
-    github = GithubAdmin.new
-    github.create_hook(params[:repo], webhook_url)
+  #get '/' do
+  #  erb :index
+  #end
 
-    erb :create, locals: { flash: "created webhook" }
-  rescue => e
-    erb :create, locals: { flash: e.message }
-  end
+  #post '/' do
+  #  github = GithubAdmin.new
+  #  github.create_hook(params[:repo], webhook_url)
+
+  #  erb :create, locals: { flash: "created webhook" }
+  #rescue => e
+  #  erb :create, locals: { flash: e.message }
+  #end
 
   post "/webhook" do
     return halt 200, "Ohai" if header_hub_event == "ping"
