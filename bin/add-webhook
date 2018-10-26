@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require_relative '../app.rb'
+
+options = {
+  url: ENV['DEFAULT_BASE_URL'],
+}
+
+
+opt_parse = OptionParser.new { |opts|
+  opts.banner = "Usage: add-webhook [options]"
+
+  opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
+    options[:verbose] = v
+  end
+
+  opts.on("-uURL", "--url=URL", "Base url for the webhook (default: '#{options[:url]}')") do |u|
+    options[:url] = u
+  end
+
+  opts.on("-rREPO", "--repo=REPO", "GitHub Repo Name (eg: csexton/pronto-server)") do |r|
+    options[:repo] = r
+  end
+
+}
+opt_parse.parse!
+
+p options
+
+abort(opt_parse.help) if options[:repo].nil? || options[:url].nil?
+
+github = GithubAdmin.new
+puts "Adding webhook #{options[:url]} to #{options[:repo]}"
+github.create_hook(options[:repo], options[:url])

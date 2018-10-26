@@ -34,7 +34,7 @@ foreman start
 All configuration is done through environment variables. Authentication settings are required, the other options are, um, optional.
 
 - `` - GitHub API Token
-- `PRONTO_GITHUB_WEBHOOK_SECRET` - Secret key for signing webhooks
+- `GITHUB_WEBHOOK_SECRET` - Secret key for signing webhooks
 
 Create a [GitHub Personal Access](https://github.com/settings/tokens/new?description=Pronto%20Server) token with the following options:
 - `repo`

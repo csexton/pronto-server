@@ -3,6 +3,7 @@
 
 class ReviewWorker
   include Sidekiq::Worker
+  sidekiq_options retry: 0
 
   def perform(clone_url, branch)
     puts "Running for #{clone_url} on #{branch}"

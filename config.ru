@@ -1,5 +1,5 @@
 require "dotenv/load"
-require "./app"
+require_relative "app.rb"
 
 if ENV['SIDEKIQ_USER']
   require 'sidekiq/api'
@@ -11,4 +11,6 @@ if ENV['SIDEKIQ_USER']
   map('/sidekiq') { run Sidekiq::Web }
 end
 
-map('/') { run App }
+map('/webhook') { run WebhookController }
+map('/github_settings') { run GithubSettingsController }
+map('/') { run RootController }

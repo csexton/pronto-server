@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-class GithubWebhook
-
+class GithubWebhookProcessor
   def initialize(body)
     @body = body
   end
@@ -17,6 +16,7 @@ class GithubWebhook
   end
 
   def valid_signature?(hub_signature)
+    require 'byebug' ; debugger
     Rack::Utils.secure_compare(signature, hub_signature)
   end
 
@@ -27,7 +27,7 @@ private
   end
 
   def sha1
-    OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['PRONTO_GITHUB_WEBHOOK_SECRET'], @body)
+    OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['GITHUB_WEBHOOK_SECRET'], @body)
   end
 
   def json

@@ -12,7 +12,7 @@ gem "pronto"
 gem "pronto-rubocop"
 gem "radius-spec"
 
-gem "byebug"
-gem "sinatra-contrib", require: "sinatra/reloader"
-gem "foreman"
-
+group :development do
+  gem "byebug"
+  gem "shotgun"
+end

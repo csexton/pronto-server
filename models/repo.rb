@@ -9,7 +9,7 @@ require 'rugged'
 class Repo
   def initialize(url, branch)
     @branch = branch
-    @token = ENV.fetch('PRONTO_GITHUB_ACCESS_TOKEN')
+    @token = ENV.fetch('GITHUB_ACCESS_TOKEN')
     @url = url
   end
 

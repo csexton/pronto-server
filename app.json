@@ -1,7 +1,6 @@
 {
   "name": "Pronto Server",
   "description": "Simple Pronto Runner for GitHub Pull Request Webhooks.",
-  "website": "http://github.com/csexton/pronto-server",
   "repository": "http://github.com/csexton/pronto-server",
   "buildpacks": [
     {"url": "heroku-community/apt"},
@@ -13,13 +12,17 @@
     "worker": { "quantity": 1, "size": "hobby" }
   },
   "env": {
-    "PRONTO_GITHUB_ACCESS_TOKEN": {
+    "GITHUB_ACCESS_TOKEN": {
       "description": "GitHub API Access Token.",
       "required": true
     },
-    "PRONTO_GITHUB_WEBHOOK_SECRET": {
-      "description": "Secret key for signing webhooks",
+    "GITHUB_WEBHOOK_SECRET": {
+      "description": "Secret Key for signing webhooks",
       "generator": "secret"
+    },
+    "DEFAULT_BASE_URL": {
+      "description": "Base URL for this server, required to create webhooks from the command line. E.g.: https://my-app.herokuapp.com",
+      "required": false
     },
     "SIDEKIQ_USER": {
       "description": "Username for Sidekiq web dashboard, without this the dashboard will be disabled.",
