@@ -9,8 +9,8 @@ if ENV['SIDEKIQ_USER']
     [user, password] == [ENV["SIDEKIQ_USER"], ENV["SIDEKIQ_PASS"]]
   end
   map('/sidekiq') { run Sidekiq::Web }
+  map('/github_settings') { run GithubSettingsController }
 end
 
 map('/webhook') { run WebhookController }
-map('/github_settings') { run GithubSettingsController }
 map('/') { run RootController }
