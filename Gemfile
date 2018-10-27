@@ -16,3 +16,9 @@ group :development do
   gem "byebug"
   gem "shotgun"
 end
+
+group :test do
+  gem 'rack-test'
+  gem 'rspec'
+  gem 'webmock'
+end

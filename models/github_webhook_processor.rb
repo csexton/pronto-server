@@ -16,7 +16,6 @@ class GithubWebhookProcessor
   end
 
   def valid_signature?(hub_signature)
-    require 'byebug' ; debugger
     Rack::Utils.secure_compare(signature, hub_signature)
   end
 
