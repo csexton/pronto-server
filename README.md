@@ -1,12 +1,17 @@
 # Pronto Server
 
-Simple Sinatra app that will run pronto on GitHub Pull Requests.
+Simple Sinatra app that will run [Pronto](https://github.com/prontolabs/pronto) on GitHub Pull Requests.
+
+## Instructions
+
+For instructions on setting up the webhooks and admin settings see [INSTRUCTIONS.md](INSTRUCTIONS.md)
+
 
 ## Deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Local Development
+# Development
 
 ### Prerequisites
 
@@ -16,20 +21,20 @@ Simple Sinatra app that will run pronto on GitHub Pull Requests.
 - [Redis](https://redis.io)
 - cmake (for compiling [Rugged](https://github.com/libgit2/rugged))
 
-### Configuration and Setup
+To setup the local enviroment:
 
 ```
 cp .env-example .env
 ./bin/bundle
 ```
 
-### Running
+Then run the webserver and sidekiq worker processes:
 
 ```
 foreman start
 ```
 
-## Configuration
+#### Configuration
 
 All configuration is done through environment variables. Authentication settings are required, the other options are, um, optional.
 
