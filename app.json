@@ -24,11 +24,11 @@
       "description": "Base URL for this server, required to create webhooks from the command line. E.g.: https://my-app.herokuapp.com",
       "required": false
     },
-    "SIDEKIQ_USER": {
+    "ADMIN_USER": {
       "description": "Username for Sidekiq web dashboard, without this the dashboard will be disabled.",
       "required": false
     },
-    "SIDEKIQ_PASS": {
+    "ADMIN_PASS": {
       "description": "Password for Sidekiq web dashboard",
       "required": false
     }
